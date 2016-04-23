@@ -1,0 +1,24 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: vvkite_dev
+  username: dev
+  password: dev
+  port: 5432
+
+test:
+  <<: *default
+  database: vvkite_test
+  username: dev
+  password: dev
+  port: 5432
+
+production:
+  <<: *default
+  database: vvkite_prod
+  username: vvkite
+  password: <%= ENV['VVKITE_DATABASE_PASSWORD'] %>
