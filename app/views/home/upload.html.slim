@@ -2,12 +2,12 @@
   - @media.each do |media|
     - if media[:type] == "photo"
       p
-        img{src=media[:thumb] alt="thumbnail"}
-        img{src=media[:small] alt="small"}
-        img{src=media[:medium] alt="medium"}
-        img{src=media[:large] alt="large"}
+        img{src=media[:thumb][:url] alt="thumbnail" height=media[:thumb][:h] width=media[:thumb][:w]}
+        img{src=media[:small][:url] alt="small" height=media[:small][:h] width=media[:small][:w]}
+        img{src=media[:medium][:url] alt="medium" height=media[:medium][:h] width=media[:medium][:w]}
+        img{src=media[:large][:url] alt="large" height=media[:large][:h] width=media[:large][:w]}
       p
-        =link_to media[:large]
+        =link_to media[:large][:url]
     - elsif media[:type] == "video"
       p
         video{width="320" height="240" controls=""}
