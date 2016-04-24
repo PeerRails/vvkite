@@ -1,2 +1,4 @@
-h1 Home#index
-p Find me in app/views/home/index.html.slim
+h1 Insert tweet's link
+= form_tag "/upload", method: "post"
+  = text_field_tag :link
+  = submit_tag "Search"

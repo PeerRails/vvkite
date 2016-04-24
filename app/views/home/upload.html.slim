@@ -1,0 +1,8 @@
+- unless @media.nil?
+  - @media.each do |media|
+    - if media[:type] == "photo"
+      p
+        img{src=media[:thumb] alt="thumbnail"}
+        img{src=media[:small] alt="small"}
+        img{src=media[:medium] alt="medium"}
+        img{src=media[:large] alt="large"}
