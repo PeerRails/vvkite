@@ -10,4 +10,4 @@ stdout_redirect nil, "#{app_dir}/log/stderr.log", true
 # preload_app!
 daemonize
 plugin :tmp_restart
-bind "tcp://0.0.0.0:3000"
+bind "tcp://0.0.0.0:#{ENV["PUMA_PORT"]}"
