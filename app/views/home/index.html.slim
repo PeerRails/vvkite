@@ -2,3 +2,14 @@ h1 Insert tweet's link
 = form_tag "/upload", method: "post"
   = text_field_tag :link
   = submit_tag "Search"
+p 
+  |Try this links
+  = form_tag "/upload", method: "post"
+    = hidden_field_tag(:link, 'https://twitter.com/VonVonVoom/status/722495989429493760')
+    = submit_tag "Video"
+  = form_tag "/upload", method: "post"
+    = hidden_field_tag(:link, 'https://twitter.com/GreenManGaming/status/724244412612632576')
+    = submit_tag "Gif"    
+  = form_tag "/upload", method: "post"
+    = hidden_field_tag(:link, 'https://twitter.com/lishainik/status/724243037191286784')
+    = submit_tag "Photo"

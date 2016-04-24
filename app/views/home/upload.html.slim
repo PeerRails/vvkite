@@ -6,3 +6,19 @@
         img{src=media[:small] alt="small"}
         img{src=media[:medium] alt="medium"}
         img{src=media[:large] alt="large"}
+      p
+        =link_to media[:large]
+    - elsif media[:type] == "video"
+      p
+        video{width="320" height="240" controls=""}
+          source{src=media[:mp4] type="video/mp4"}
+          Your browser does not support the video tag.
+      p
+        =link_to media[:mp4]
+    - elsif media[:type] == "gif"
+      p
+        video{width="320" height="240" controls="" loop="" autoplay=""}
+          source{src=media[:mp4] type="video/mp4"}
+          Your browser does not support the video tag.
+      p
+        =link_to media[:mp4]

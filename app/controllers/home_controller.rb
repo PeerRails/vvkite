@@ -21,7 +21,9 @@ class HomeController < ApplicationController
             type = media.class == Twitter::Media::Video ? "video" : "gif"
             url = {type: type}
             url[:thumb] = media.media_url.to_s.inspect unless media.media_url.nil?
-            url[:videos] = media.video_info.variants.map{|v| v.url.to_s}
+            media.video_info.variants.map do |v|
+              url[v.url.to_s.split(".").last.to_sym] = v.url.to_s
+            end
             urls.push url
           elsif media.class == Twitter::Media::Photo
             url = {type: "photo"}
