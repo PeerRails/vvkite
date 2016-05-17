@@ -1,0 +1,31 @@
+= VVKite
+Peer Rails <peer@omck.ws>
+
+image:https://codeclimate.com/github/PeerRails/vvkite/badges/gpa.svg[link="https://codeclimate.com/github/PeerRails/vvkite"]
+image:https://codeclimate.com/github/PeerRails/vvkite/badges/coverage.svg[link="https://codeclimate.com/github/PeerRails/vvkite/coverage"]
+image:https://codeclimate.com/github/PeerRails/vvkite/badges/issue_count.svg[link="https://codeclimate.com/github/PeerRails/vvkite"]
+
+VVKite is a service to extract media
+files from tweets.
+It is a test Rails 5 beta project.
+
+
+== Installation
+
+You need to clone the VVKite project using the +git+ command:
+
+ git clone https://github.com/PeerRails/vvkite
+
+Then install required gems using the +bundle+ command:
+
+ bundle install
+
+Want to test? Here it is:
+
+ rspec
+
+Coverage data will be placed in +coverage+ folder
+
+Now you are ready to start using VVKite!
+
+'Give it a try!'
