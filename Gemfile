@@ -21,7 +21,6 @@ gem 'jbuilder', '~> 2.0'
 
 gem 'twitter'
 gem 'twitter-text'
-gem 'devise'
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem "pundit"
@@ -30,7 +29,10 @@ gem 'russian', '~> 0.6.0'
 
 
 group :development, :test do
-  gem 'rspec-rails', '~> 3.0'
+  #gem 'rspec-rails', '~> 3.0'
+  %w[rspec-core rspec-expectations rspec-mocks rspec-rails rspec-support].each do |lib|
+    gem lib, git: "https://github.com/rspec/#{lib}.git", branch: 'master'
+  end
   gem "shoulda-matchers", '~> 3.0'
   gem 'fabrication'
   gem 'database_cleaner'
@@ -57,3 +59,5 @@ group :doc do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem "codeclimate-test-reporter"
+
