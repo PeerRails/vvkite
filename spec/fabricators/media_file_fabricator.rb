@@ -1,5 +1,5 @@
 Fabricator(:media_file) do
-  tweet
   link { Faker::Internet.url }
-  media_type "photo"
+  media_type { %w(photo gif video).sample }
+  tweet { Fabricate(:tweet) }
 end

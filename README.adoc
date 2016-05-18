@@ -28,4 +28,4 @@ Coverage data will be placed in +coverage+ folder
 
 Now you are ready to start using VVKite!
 
-'Give it a try!'
+Give it a try!
