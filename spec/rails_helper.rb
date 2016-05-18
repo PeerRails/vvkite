@@ -15,7 +15,10 @@ OmniAuth.config.mock_auth[:twitter] = OmniAuth::AuthHash.new({
   :name => 'Random Name'
 })
 
-SimpleCov.start 'rails'
+SimpleCov.start 'rails' do
+  add_group "Serializers", "app/serializers"
+  add_group "Channels", "app/channels"
+end
 
 ActiveRecord::Migration.maintain_test_schema!
 RSpec.configure do |config|

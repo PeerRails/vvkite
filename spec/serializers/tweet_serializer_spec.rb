@@ -8,12 +8,10 @@ RSpec.describe TweetSerializer, :type => :serializer do
     let(:serializer) { TweetSerializer.new(tweet_factory) }
     let(:serialization) { ActiveModelSerializers::Adapter.create(serializer) }
 
-    subject do
-      JSON.parse(serialization.to_json)
-    end
+    subject { JSON.parse(serialization.to_json) }
 
-    it {expect(subject["id"]).to eql(tweet_factory.id)}
-    it {expect(subject["tweet_id"]).to eql(tweet_factory.tweet_id)}
-    it {expect(subject["media_files"]).not_to be nil}
+    it { expect(subject['id']).to eql(tweet_factory.id) }
+    it { expect(subject['tweet_id']).to eql(tweet_factory.tweet_id) }
+    it { expect(subject['media_files']).to eql([]) }
   end
 end
