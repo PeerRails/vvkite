@@ -1,6 +1,6 @@
 class Tweet < ApplicationRecord
   belongs_to :user
-  has_many :media_files, foreign_key: "tweet_id"
+  has_many :media_files
 
   validates_presence_of :tweet_id, :twitter_id, :link, :media_type, :user_id
   validates_uniqueness_of :link, :tweet_id
