@@ -4,11 +4,14 @@ RSpec.describe User, :type => :model do
   before do
     #request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:twitter]
   end
-  it "has a valid factory" do
-    expect(Fabricate(:user)).to be_valid
-  end
 
-  let(:user_factory) { Fabricate(:user) }
+  let(:user_factory) { create(:user) }
+  let(:tweet_factory) { create(:tweet, user: user_factory) }
+  let(:media_file_factory) { create(:media_file, tweet: tweet_factory) }
+
+  it "has a valid factory" do
+    expect(build(:user)).to be_valid
+  end
 
   describe "associations" do
     it { expect(user_factory).to have_many(:tweets) }

@@ -27,6 +27,7 @@ RSpec.configure do |config|
   #config.use_transactional_tests = true
 
   config.infer_spec_type_from_file_location!
+  config.include FactoryGirl::Syntax::Methods
 end
 
 Shoulda::Matchers.configure do |config|

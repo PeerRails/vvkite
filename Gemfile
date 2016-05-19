@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '>= 5.0.0.beta3', '< 5.1'
+gem 'rails', '~> 5.0.0.rc1'
 gem 'pg', '~> 0.18'
 gem 'active_model_serializers', '~> 0.10.0.rc5'
 gem 'puma'
@@ -34,7 +34,7 @@ group :development, :test do
     gem lib, git: "https://github.com/rspec/#{lib}.git", branch: 'master'
   end
   gem "shoulda-matchers", '~> 3.0'
-  gem 'fabrication'
+  gem 'factory_girl_rails'
   gem 'database_cleaner'
   gem 'brakeman'
   gem 'simplecov'

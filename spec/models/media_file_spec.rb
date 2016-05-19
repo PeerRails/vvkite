@@ -1,14 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe MediaFile, :type => :model do
-  before do
-    #request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:twitter]
-  end
-  it "has a valid factory" do
-    expect(Fabricate(:media_file)).to be_valid
-  end
 
-  let(:media_file_factory) { Fabricate(:media_file) }
+  let(:user_factory) { create(:user) }
+  let(:tweet_factory) { create(:tweet, user: user_factory) }
+  let(:media_file_factory) { create(:media_file, tweet: tweet_factory) }
+
+  it "has a valid factory" do
+    expect(build(:media_file, tweet: tweet_factory)).to be_valid
+  end
 
   describe "associations" do
     it { expect(media_file_factory).to belong_to(:tweet) }
