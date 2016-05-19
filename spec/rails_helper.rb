@@ -4,6 +4,7 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
 require 'database_cleaner'
 require 'simplecov'
+require 'webmock/rspec'
 
 
 DatabaseCleaner.strategy = :truncation
@@ -19,6 +20,8 @@ SimpleCov.start 'rails' do
   add_group "Serializers", "app/serializers"
   add_group "Channels", "app/channels"
 end
+WebMock.disable_net_connect!(allow_localhost: true)
+
 
 ActiveRecord::Migration.maintain_test_schema!
 RSpec.configure do |config|

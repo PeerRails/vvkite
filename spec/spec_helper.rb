@@ -20,4 +20,8 @@ RSpec.configure do |config|
       example.run
     end
   end
+
+  config.after(:suite) do
+    WebMock.disable_net_connect!(:allow => 'codeclimate.com')
+  end
 end

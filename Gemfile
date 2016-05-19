@@ -39,7 +39,8 @@ group :development, :test do
   gem 'brakeman'
   gem 'simplecov'
   gem 'faker'
-  #gem 'webmock'
+  gem 'webmock'
+  gem 'vcr'
   gem 'byebug'
 end
 
