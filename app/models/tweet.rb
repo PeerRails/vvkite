@@ -13,7 +13,7 @@ class Tweet < ApplicationRecord
     case status.media.first.class.to_s
     when /Video/
       media = "video"
-    when /gif/
+    when /Gif/
       media = "gif"
     when /Photo/
       media = "photo"
