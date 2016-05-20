@@ -2,8 +2,8 @@ class CreateTweets < ActiveRecord::Migration[5.0]
   def change
     create_table :tweets do |t|
       t.integer :user_id, null: false
-      t.integer :tweet_id, null: false
-      t.integer :twitter_id, null: false
+      t.integer :tweet_id, null: false, limit: 8
+      t.integer :twitter_id, null: false, limit: 8
 
       t.string :link, null: false
       t.string :text

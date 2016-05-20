@@ -3,7 +3,7 @@ Peer Rails <peer@omck.ws>
 
 image:https://codeclimate.com/github/PeerRails/vvkite/badges/gpa.svg[link="https://codeclimate.com/github/PeerRails/vvkite"]
 image:https://codeclimate.com/github/PeerRails/vvkite/badges/coverage.svg[link="https://codeclimate.com/github/PeerRails/vvkite/coverage"]
-image:https://codeship.com/projects/3518f0d0-0032-0134-08e0-3a1fbd2b2974/status?branch=master[https://codeship.com/projects/153123]
+image:https://codeship.com/projects/3518f0d0-0032-0134-08e0-3a1fbd2b2974/status?branch=master[link="https://codeship.com/projects/153123"]
 image:https://codeclimate.com/github/PeerRails/vvkite/badges/issue_count.svg[link="https://codeclimate.com/github/PeerRails/vvkite"]
 
 VVKite is a service to extract media

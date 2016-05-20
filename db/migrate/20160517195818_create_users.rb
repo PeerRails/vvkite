@@ -11,10 +11,10 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.inet     :last_sign_in_ip
 
       # Twitter
-      t.string :screen_name, null: false
-      t.string :twitter_id, null: false
-      t.string :name, null: false, default: "A bird"
-      t.string :profile_img, null: false, default: "https://abs.twimg.com/sticky/default_profile_images/default_profile_6_normal.png"
+      t.string  :screen_name, null: false
+      t.integer :twitter_id, null: false, limit: 8
+      t.string  :name, null: false, default: "A bird"
+      t.string  :profile_img, null: false, default: "https://abs.twimg.com/sticky/default_profile_images/default_profile_6_normal.png"
 
       t.integer :admin, null: false, default: 0
 
