@@ -7,18 +7,18 @@
         img{src=media[:medium][:url] alt="medium" height=media[:medium][:h] width=media[:medium][:w]}
         img{src=media[:large][:url] alt="large" height=media[:large][:h] width=media[:large][:w]}
       p
-        =link_to media[:large][:url]
+        =link_to "Source", media[:large][:url]
     - elsif media[:type] == "video"
       p
         video{width="320" height="240" controls=""}
           source{src=media[:mp4] type="video/mp4"}
           Your browser does not support the video tag.
       p
-        =link_to media[:mp4]
+        =link_to "Source", media[:mp4]
     - elsif media[:type] == "gif"
       p
         video{width="320" height="240" controls="" loop="" autoplay=""}
           source{src=media[:mp4] type="video/mp4"}
           Your browser does not support the video tag.
       p
-        =link_to media[:mp4]
+        =link_to "Source", media[:mp4]
