@@ -9,10 +9,6 @@ RSpec.describe TweetsController, type: :controller do
 
     before do
       request.env["HTTP_ACCEPT"] = 'application/json'
-      ENV["TWITTER_CONSUMER_KEY"] = "TCK"
-      ENV["TWITTER_CONSUMER_SECRET"] = "TCS"
-      ENV["TWITTER_ACCESS_TOKEN"] = "TAK"
-      ENV["TWITTER_ACCESS_SECRET"] = "TAS"
       stub_request(:get, "https://api.twitter.com/1.1/statuses/show/#{tweet_id}.json")
         .with(:headers => {'Accept'=>'application/json', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'User-Agent'=>'TwitterRubyGem/5.16.0'})
         .to_return(:status => 200, :body => json_file, :headers => {"Content-Type"=> "application/json"})

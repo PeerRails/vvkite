@@ -5,7 +5,18 @@ RSpec.describe Tweet, type: :model do
   let(:user_factory) { create(:user) }
   let(:tweet_factory) { create(:tweet, user: user_factory) }
   let(:media_file_factory) { create(:media_file, tweet: tweet_factory) }
-  let(:tweet) { Twitter::Tweet.new(id: 1, text: 'foo', user: {id: 1, screen_name: 'sferik'}, entities: {media: [{id: 1, type: %w(photo animated_gif video).sample}]}) }
+  let(:tweet) { Twitter::Tweet.new(id: 1,
+    text: 'foo',
+    user: {id: 1, screen_name: 'sferik'},
+    entities: {
+      media: [
+        {id: 1,
+          type: %w(photo animated_gif video).sample,
+          media_url_https: Faker::Placeholdit.image
+        }
+      ]
+    })
+  }
 
   it "has a valid factory" do
     expect(build(:tweet, user: user_factory)).to be_valid
@@ -30,5 +41,6 @@ RSpec.describe Tweet, type: :model do
   describe "custome methods" do
     it { expect{Tweet.add_status tweet}.to change{ Tweet.count }.by(1) }
     it { expect{Tweet.add_status tweet}.to change{ User.count }.by(1) }
+    it { expect{Tweet.add_status tweet}.to change{ MediaFile.count }.by(1) }
   end
 end

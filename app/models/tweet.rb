@@ -24,7 +24,7 @@ class Tweet < ApplicationRecord
       u.screen_name = status.user.screen_name
     end
 
-    Tweet.create(
+    tweet = Tweet.create(
       tweet_id: status.id,
       twitter_id: status.user.id,
       link: status.uri.to_s,
@@ -32,5 +32,15 @@ class Tweet < ApplicationRecord
       media_type: media,
       user_id: user.id
       )
+
+    status.media.each do |m|
+      MediaFile.create(
+        tweet_id: tweet.id,
+        media_type: tweet.media_type,
+        link: m.media_url_https
+        )
+    end
+
+    return tweet
   end
 end

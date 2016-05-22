@@ -21,7 +21,10 @@ SimpleCov.start 'rails' do
   add_group "Channels", "app/channels"
 end
 WebMock.disable_net_connect!(allow_localhost: true)
-
+ENV["TWITTER_CONSUMER_KEY"] = "TCK"
+ENV["TWITTER_CONSUMER_SECRET"] = "TCS"
+ENV["TWITTER_ACCESS_TOKEN"] = "TAK"
+ENV["TWITTER_ACCESS_SECRET"] = "TAS"
 
 ActiveRecord::Migration.maintain_test_schema!
 RSpec.configure do |config|
