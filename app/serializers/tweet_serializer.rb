@@ -3,4 +3,6 @@ class TweetSerializer < ActiveModel::Serializer
   has_many :media_files do
     object.media_files
   end
+
+  meta :tweets
 end

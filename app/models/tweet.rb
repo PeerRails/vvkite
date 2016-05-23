@@ -8,7 +8,6 @@ class Tweet < ApplicationRecord
 
   def self.add_status(status)
     media = nil
-    user = nil
 
     case status.media.first.class.to_s
     when /Video/
