@@ -34,7 +34,6 @@ class Tweet < ApplicationRecord
     status.media.each do |m|
       media_url = nil
       if m.class == Twitter::Media::Video or m.class == Twitter::Media::AnimatedGif
-        raise status.to_json.inspect
         media_url = m.video_info.variants.last.url
       elsif m.class == Twitter::Media::Photo
         media_url = m.media_url_https
@@ -42,7 +41,7 @@ class Tweet < ApplicationRecord
       MediaFile.create(
         tweet_id: tweet.id,
         media_type: tweet.media_type,
-        link: m.media_url_https
+        link: media_url
         )
     end
 
