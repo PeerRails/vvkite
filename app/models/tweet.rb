@@ -31,8 +31,14 @@ class Tweet < ApplicationRecord
       media_type: media,
       user_id: user.id
       )
-
     status.media.each do |m|
+      media_url = nil
+      if m.class == Twitter::Media::Video or m.class == Twitter::Media::AnimatedGif
+        raise status.to_json.inspect
+        media_url = m.video_info.variants.last.url
+      elsif m.class == Twitter::Media::Photo
+        media_url = m.media_url_https
+      end
       MediaFile.create(
         tweet_id: tweet.id,
         media_type: tweet.media_type,

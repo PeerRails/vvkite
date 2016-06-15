@@ -17,6 +17,18 @@ RSpec.describe Tweet, type: :model do
       ]
     })
   }
+  let(:tweet_custom_photo) { Twitter::Tweet.new(id: 1,
+    text: 'foo',
+    user: {id: 1, screen_name: 'sferik'},
+    entities: {
+      media: [
+        {id: 1,
+          type: "photo",
+          media_url_https: Faker::Placeholdit.image
+        }
+      ]
+    })
+  }
 
   it "has a valid factory" do
     expect(build(:tweet, user: user_factory)).to be_valid
@@ -38,9 +50,9 @@ RSpec.describe Tweet, type: :model do
     it { expect(tweet_factory).to validate_uniqueness_of(:tweet_id) }
   end
 
-  describe "custome methods" do
-    it { expect{Tweet.add_status tweet}.to change{ Tweet.count }.by(1) }
-    it { expect{Tweet.add_status tweet}.to change{ User.count }.by(1) }
-    it { expect{Tweet.add_status tweet}.to change{ MediaFile.count }.by(1) }
+  describe "custom methods" do
+    it { expect{Tweet.add_status tweet_custom_photo}.to change{ Tweet.count }.by(1) }
+    it { expect{Tweet.add_status tweet_custom_photo}.to change{ User.count }.by(1) }
+    it { expect{Tweet.add_status tweet_custom_photo}.to change{ MediaFile.count }.by(1) }
   end
 end

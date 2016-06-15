@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160517203022) do
+ActiveRecord::Schema.define(version: 20160615195448) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20160517203022) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",              default: "",                                                                                 null: false
+    t.string   "email",              default: "nothing@localhost",                                                                null: false
     t.integer  "sign_in_count",      default: 0,                                                                                  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
@@ -55,7 +55,6 @@ ActiveRecord::Schema.define(version: 20160517203022) do
     t.integer  "admin",              default: 0,                                                                                  null: false
     t.datetime "created_at",                                                                                                      null: false
     t.datetime "updated_at",                                                                                                      null: false
-    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["screen_name"], name: "index_users_on_screen_name", unique: true, using: :btree
     t.index ["twitter_id"], name: "index_users_on_twitter_id", unique: true, using: :btree
   end
