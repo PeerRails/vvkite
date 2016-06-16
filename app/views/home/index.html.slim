@@ -1,5 +1,7 @@
 h1 Insert tweet's link
-
+= form_tag "/tweets/get", method: "get"
+  = text_field_tag(:link)
+  = submit_tag "Search"
 p
   |Try this links
   = form_tag "/tweets/get", method: "get"
