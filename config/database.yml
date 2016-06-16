@@ -19,6 +19,4 @@ test:
 
 production:
   <<: *default
-  database: vvkite_prod
-  username: vvkite
-  password: <%= ENV['VVKITE_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
